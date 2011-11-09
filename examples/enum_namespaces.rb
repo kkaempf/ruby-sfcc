@@ -3,6 +3,7 @@
 end
  
 require 'rubygems'
+require 'openssl'
 require 'sfcc'
 
 #
@@ -10,15 +11,26 @@ require 'sfcc'
 #
 # modeled along 'EnumNamespaces' from YaWN (http://pywbem.wiki.sourceforge.net/YAWN)
 
-client = Sfcc::Cim::Client.connect('http://localhost:5988')
+puts "start"
+raise unless OpenSSL::Digest::Digest.new("sha1")
+
+puts "first sha1"
+
+client = Sfcc::Cim::Client.connect('http://wsman:secret@localhost:5988')
+
+puts "client #{client}"
+
+raise unless OpenSSL::Digest::Digest.new("sha1")
+
+puts "second sha1"
 
 ['CIM_Namespace', '__Namespace'].each do |classname|
   ['root/cimv2', 'Interop', 'interop', 'root', 'root/interop'].each do |namespace|
     op = Sfcc::Cim::ObjectPath.new(namespace, classname)
-#    puts "Checking #{op}"
+    puts "Checking #{op}"
     begin
       client.instance_names(op).each do |path|
-	n = path[:Name]
+	n = path.Name
 	puts "Namespace: #{path['Name']}"
       end
     rescue Sfcc::Cim::ErrorInvalidClass, Sfcc::Cim::ErrorInvalidNamespace
