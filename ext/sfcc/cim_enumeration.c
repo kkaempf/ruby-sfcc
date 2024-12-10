@@ -179,7 +179,7 @@ Sfcc_wrap_cim_enumeration(CIMCEnumeration *enm, VALUE client)
 
 
 VALUE cSfccCimEnumeration;
-void init_cim_enumeration()
+void init_cim_enumeration(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

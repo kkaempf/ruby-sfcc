@@ -389,7 +389,7 @@ Sfcc_wrap_cim_instance(CIMCInstance *instance, VALUE client)
 
 
 VALUE cSfccCimInstance;
-void init_cim_instance()
+void init_cim_instance(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

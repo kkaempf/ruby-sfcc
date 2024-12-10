@@ -44,7 +44,7 @@ Sfcc_wrap_cim_string(CIMCString *string)
 }
 
 VALUE cSfccCimString;
-void init_cim_string()
+void init_cim_string(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

@@ -497,7 +497,7 @@ void Sfcc_clear_cim_data(CIMCData *data)
   clear_cimdata(data);
 }
 
-void init_cim_data()
+void init_cim_data(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

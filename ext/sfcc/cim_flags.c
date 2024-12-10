@@ -6,7 +6,7 @@
 #include "cim_flags.h"
 
 VALUE cSfccCimFlags;
-void init_cim_flags()
+void init_cim_flags(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
 

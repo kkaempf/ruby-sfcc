@@ -375,7 +375,7 @@ Sfcc_wrap_cim_class(CIMCClass *cimclass)
 }
 
 VALUE cSfccCimClass;
-void init_cim_class()
+void init_cim_class(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

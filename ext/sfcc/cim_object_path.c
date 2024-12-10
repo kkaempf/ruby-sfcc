@@ -517,7 +517,7 @@ Sfcc_wrap_cim_object_path(CIMCObjectPath *object_path, VALUE client)
 }
 
 VALUE cSfccCimObjectPath;
-void init_cim_object_path()
+void init_cim_object_path(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

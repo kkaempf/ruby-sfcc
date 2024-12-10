@@ -129,7 +129,7 @@ Sfcc_wrap_cim_type(CIMCType type)
     rb_define_const(klass, name, INT2FIX(val));
 
 VALUE cSfccCimType;
-void init_cim_type()
+void init_cim_type(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

@@ -1257,7 +1257,7 @@ static VALUE connect(VALUE klass, VALUE host, VALUE scheme, VALUE port, VALUE us
 }
 
 VALUE cSfccCimClient;
-void init_cim_client()
+void init_cim_client(void)
 {
   VALUE sfcc = rb_define_module("Sfcc");
   VALUE cimc = rb_define_module_under(sfcc, "Cim");

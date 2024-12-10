@@ -32,7 +32,7 @@ Exit_sfcc(CIMCEnv *env)
   }
 }
 
-void Init_sfcc()
+void Init_sfcc(void)
 {
   const char *conn;
   VALUE cEnvironment; /* class */
