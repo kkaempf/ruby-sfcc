@@ -339,7 +339,7 @@ static VALUE property_qualifier_count(VALUE self, VALUE property_name)
  * Creates an instance from in +object_path+
  *
  */
-static VALUE new(int argc, VALUE *argv)
+static VALUE new(int argc, VALUE *argv, VALUE obj)
 {
   CIMCStatus status;
   CIMCInstance *ptr;
@@ -348,7 +348,7 @@ static VALUE new(int argc, VALUE *argv)
   VALUE client = Qnil;
 
   rb_scan_args(argc, argv, "11", &object_path, &client);
-  
+
   Data_Get_Struct(object_path, rb_sfcc_object_path, rso);
   ptr = cimcEnv->ft->newInstance(cimcEnv, rso->op, &status);
   if (!status.rc)
@@ -406,7 +406,7 @@ void init_cim_instance(void)
   rb_define_method(klass, "property_count", property_count, 0);
   rb_define_method(klass, "set_property", set_property, 2);
   rb_define_method(klass, "object_path", object_path, 0);
-  rb_define_method(klass, "set_property_filter", set_property_filter, 3);
+  rb_define_method(klass, "set_property_filter", set_property_filter, 2);
   rb_define_method(klass, "qualifier", qualifier, 1);
   rb_define_method(klass, "each_qualifier", each_qualifier, 0);
   rb_define_method(klass, "qualifier_count", qualifier_count, 0);
