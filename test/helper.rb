@@ -25,6 +25,6 @@ module SfccTestUtils
 end
 
 # Same for unit tests
-class SfccTestCase < MiniTest::Test
+class SfccTestCase < Minitest::Test
   include SfccTestUtils
 end
