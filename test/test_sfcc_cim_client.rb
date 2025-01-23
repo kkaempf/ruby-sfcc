@@ -43,7 +43,7 @@ describe 'a running CIMOM' do
   it 'should report error when getting invalid class' do
     @op = Sfcc::Cim::ObjectPath.new('root/cimv2', 'NotExistingClass')
     assert_raises Sfcc::Cim::ErrorNotFound do
-      cimclass = @client.get_class(@op)
+      @client.get_class(@op)
     end
   end
 
@@ -59,7 +59,7 @@ describe 'a running CIMOM' do
     instance = Sfcc::Cim::Instance.new(op)
     assert instance
     assert_raises Sfcc::Cim::ErrorNotSupported do
-      new_op = @client.create_instance(op, instance)
+      @client.create_instance(op, instance)
     end
   end
 
@@ -123,7 +123,7 @@ describe 'a running CIMOM' do
       path = instance.object_path
       assert_kind_of Sfcc::Cim::ObjectPath, path
       out = {}
-      ret = @client.invoke_method(path, :execCmd, { cmd: 'cat /etc/SuSE-release' }, out)
+      ret = @client.invoke_method(path, :execCmd, { cmd: 'cat /etc/os-release' }, out)
       assert out.key?(:out), 'output parameter is present'
       assert out[:out].match(/VERSION/)
       assert_equal 0, ret, 'execCmd returns 0'
