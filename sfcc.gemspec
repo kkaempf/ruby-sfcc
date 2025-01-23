@@ -15,10 +15,10 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 1.9.3'
   s.required_rubygems_version = '>= 1.3.6'
-  s.add_development_dependency('rake-compiler', ['>= 0'])
-  s.add_development_dependency('minitest', ['>= 5'])
-  s.add_development_dependency('mocha', ['>= 0.9'])
-  s.add_development_dependency('yard', ['>= 0.5'])
+  s.add_development_dependency('rake-compiler', '~> 0')
+  s.add_development_dependency('minitest', '~> 5')
+  s.add_development_dependency('mocha', '~> 0.9')
+  s.add_development_dependency('yard', '~> 0.5')
 
   s.extensions	<< 'ext/sfcc/extconf.rb'
 
