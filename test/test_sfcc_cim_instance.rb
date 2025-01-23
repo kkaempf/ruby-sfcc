@@ -14,6 +14,7 @@ describe 'object path for CIM_ComputerSystem and running CIMOM' do
 
   it 'should be able to create an instance' do
     instance = Sfcc::Cim::Instance.new(@op_computer_system)
+    assert instance
   end
 end
 
