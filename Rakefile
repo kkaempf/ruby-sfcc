@@ -19,7 +19,7 @@ Rake::TestTask.new do |t|
   t.verbose = true
 end
 
-extra_docs = ['README*', 'CHANGELOG*']
+extra_docs = ['README.rdoc', 'CHANGELOG.rdoc']
 
 begin
  require 'yard'
