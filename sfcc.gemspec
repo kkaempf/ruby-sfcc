@@ -7,9 +7,10 @@ Gem::Specification.new do |s|
   s.name        = 'sfcc'
   s.version     = Sfcc::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Duncan Mac-Vicar']
-  s.email       = ['dmacvicar@suse.de']
-  s.homepage    = 'http://www.github.com/dmacvicar/ruby-sfcc'
+  s.authors     = ['Klaus Kämpf', 'Duncan Mac-Vicar']
+  s.email       = ['kkaempf@suse.de']
+  s.license     = "MIT"
+  s.homepage    = 'http://www.github.com/kkaempf/ruby-sfcc'
   s.summary = 'WBEM client for ruby based on the sblim-sfcc library'
   s.description = 'ruby-sfcc allows to access a CIMOM either with the WBEM protocol or by using the SfcbLocal interface provided by the sblim-sfcb CIMOM implementation from the sblim project.'
 
