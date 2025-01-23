@@ -1266,6 +1266,7 @@ void init_cim_client(void)
    * CIM client which can communicate with a CIMOM
    */
   VALUE klass = rb_define_class_under(cimc, "Client", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimClient = klass;
 
   rb_define_singleton_method(klass, "native_connect", connect, 9);

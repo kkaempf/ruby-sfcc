@@ -53,6 +53,7 @@ void init_cim_string(void)
    * a string in the CIM environemtn
    */
   VALUE klass = rb_define_class_under(cimc, "String", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimString = klass;
 
   rb_define_singleton_method(klass, "new", new, 1);

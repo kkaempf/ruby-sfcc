@@ -57,6 +57,7 @@ void Init_sfcc(void)
    * alloc CimcEnvironment once, store as const
    */
   cEnvironment = rb_define_class_under(mSfccCim, "CimcEnvironment", rb_cObject);
+  rb_undef_alloc_func(cEnvironment);
   conn = getenv("RUBY_SFCC_CONNECTION"); /* "SfcbLocal" or "XML" */
   if (!conn) conn = "XML";
   cimcEnv = NewCIMCEnv(conn,

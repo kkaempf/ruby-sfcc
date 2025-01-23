@@ -384,6 +384,7 @@ void init_cim_class(void)
    * class from the CIM schema
    */
   VALUE klass = rb_define_class_under(cimc, "Class", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimClass = klass;
 
   rb_define_method(klass, "class_name", class_name, 0);

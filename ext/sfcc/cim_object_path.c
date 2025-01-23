@@ -526,6 +526,7 @@ void init_cim_object_path(void)
    * an object path on the CIM namespace
    */
   VALUE klass = rb_define_class_under(cimc, "ObjectPath", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimObjectPath = klass;
 
   rb_define_singleton_method(klass, "new", new, -1);

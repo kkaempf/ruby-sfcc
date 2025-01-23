@@ -506,6 +506,7 @@ void init_cim_data(void)
    * data on the CIM namespace
    */
   VALUE klass = rb_define_class_under(cimc, "Data", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimData = klass;
 
   rb_define_singleton_method(klass, "new", new, 2);

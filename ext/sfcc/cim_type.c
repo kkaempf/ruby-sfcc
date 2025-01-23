@@ -138,6 +138,7 @@ void init_cim_type(void)
    * data on the CIM namespace
    */
   VALUE klass = rb_define_class_under(cimc, "Type", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimType = klass;
 
   rb_define_method(klass, "to_s", to_s, 0);

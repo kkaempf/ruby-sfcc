@@ -398,6 +398,7 @@ void init_cim_instance(void)
    * an instance of a CIM class
    */
   VALUE klass = rb_define_class_under(cimc, "Instance", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimInstance = klass;
 
   rb_define_singleton_method(klass, "new", new, -1);

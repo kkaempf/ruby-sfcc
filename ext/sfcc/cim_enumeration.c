@@ -185,6 +185,7 @@ void init_cim_enumeration(void)
   VALUE cimc = rb_define_module_under(sfcc, "Cim");
 
   VALUE klass = rb_define_class_under(cimc, "Enumeration", rb_cObject);
+  rb_undef_alloc_func(klass);
   cSfccCimEnumeration = klass;
 
   rb_include_module(klass, rb_const_get(rb_cObject, rb_intern("Enumerable")));
