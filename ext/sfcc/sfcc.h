@@ -81,7 +81,7 @@ VALUE sfcc_cimdata_to_value(CIMCData *data, VALUE client);
 CIMCData sfcc_value_to_cimdata(VALUE value);
 
 /**
- * @param v, can be Fixnum, Bignum or Float
+ * @param v, can be Integer or Float
  * @return ruby String created from ruby number
  */
 VALUE sfcc_numeric_to_str(VALUE v);

@@ -84,7 +84,7 @@ static void do_set_type(rb_sfcc_data *data, VALUE type)
   char buf[100];
   VALUE type_except;
   snprintf(buf, 100, "expected Type instance, Symbol,"
-          " String or Fixnum, not: %s",
+          " String or Integer, not: %s",
           to_charptr(rb_obj_class(type)));
   type_except = rb_exc_new2(rb_eTypeError, buf);
 
@@ -99,6 +99,7 @@ static void do_set_type(rb_sfcc_data *data, VALUE type)
         return;
       }
       type = INT2FIX(Sfcc_rb_type_to_cimtype(type));
+      /*FALLTHRU*/
     case T_FIXNUM:
       if (!Sfcc_cim_type_to_cstr(FIX2UINT(type))) return;
       break;
@@ -216,7 +217,6 @@ static void do_set_value(rb_sfcc_data *data, VALUE value)
       break;
 
     case T_FIXNUM:
-    case T_BIGNUM:
     case T_FLOAT:
       if ((d->type & (CIMC_UINT | CIMC_char16))) {
         // handle unsigned numbers
@@ -366,9 +366,9 @@ static VALUE new(VALUE klass, VALUE type, VALUE value)
  *
  * Created a new data object from +value+ only. The +Cim::Type+ is guessed
  * from type of +value+:
- *  * +String+             -> +Cim::Type::String+
- *  * +Fixnum+ or +Bignum+ -> +Cim::Type::SInt64+
- *  * +Float+              -> +Cim::Type::Real64+
+ *  * +String+  -> +Cim::Type::String+
+ *  * +Integer+ -> +Cim::Type::SInt64+
+ *  * +Float+   -> +Cim::Type::Real64+
  *  * +Array+ containing values of type xy -> Cim::Type::xyA
  * any wrapped cimc objects in Cim namespace are also supported
  */
