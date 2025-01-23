@@ -42,22 +42,22 @@ void sfcc_rb_raise_if_error(CIMCStatus status, const char *msg, ...);
  * you need to deallocate the array yourself. But don't deallocate
  * the elements.
  */
-inline char ** sfcc_value_array_to_string_array(VALUE array);
+char ** sfcc_value_array_to_string_array(VALUE array);
 
 /**
  * converts a CIMCArray to rbArray
  */
-inline VALUE sfcc_cimcarray_to_rubyarray(CIMCArray *array, VALUE client);
+VALUE sfcc_cimcarray_to_rubyarray(CIMCArray *array, VALUE client);
 
 /**
  * converts a ruby hash to a CIM args object
  */
-inline CIMCArgs* sfcc_hash_to_cimargs(VALUE hash);
+CIMCArgs* sfcc_hash_to_cimargs(VALUE hash);
 
 /**
  * converts a CIM args object to a hash
  */
-inline VALUE sfcc_cimargs_to_hash(CIMCArgs *args, VALUE client);
+VALUE sfcc_cimargs_to_hash(CIMCArgs *args, VALUE client);
 
 /**
  * allocates a new cimcarray and fills it with converted values of ruby array
@@ -68,22 +68,22 @@ inline VALUE sfcc_cimargs_to_hash(CIMCArgs *args, VALUE client);
  *
  * @note nested arrays are not supported
  */
-inline CIMCArray * sfcc_rubyarray_to_cimcarray(VALUE array, CIMCType *type);
+CIMCArray * sfcc_rubyarray_to_cimcarray(VALUE array, CIMCType *type);
 
 /**
  * converts CIMCData to ruby VALUE
  */
-inline VALUE sfcc_cimdata_to_value(CIMCData *data, VALUE client);
+VALUE sfcc_cimdata_to_value(CIMCData *data, VALUE client);
 
 /**
  * convert ruby VALUE to CIMCData
  */
-inline CIMCData sfcc_value_to_cimdata(VALUE value);
+CIMCData sfcc_value_to_cimdata(VALUE value);
 
 /**
  * @param v, can be Fixnum, Bignum or Float
  * @return ruby String created from ruby number
  */
-inline VALUE sfcc_numeric_to_str(VALUE v);
+VALUE sfcc_numeric_to_str(VALUE v);
 
 #endif
