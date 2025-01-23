@@ -52,7 +52,7 @@ describe Sfcc::Cim::Data do
     d = Sfcc::Cim::Data.from_value(45)
     assert_equal(d.type.to_i, Sfcc::Cim::Type::SInt64)
     assert_equal(d.state, Sfcc::Cim::Data::Good)
-    assert_kind_of(Fixnum, d.value)
+    assert_kind_of(Integer, d.value)
     assert_equal(d.value, 45)
     str = Sfcc::Cim::String.new('sfcc string')
     d = Sfcc::Cim::Data.from_value(str)
@@ -68,7 +68,7 @@ describe Sfcc::Cim::Data do
     d = Sfcc::Cim::Data.from_value(nil)
     assert_equal(d.type.to_i, Sfcc::Cim::Type::Null)
     assert_equal(d.state, Sfcc::Cim::Data::Null)
-    assert_equal(d.value, nil)
+    assert_nil(d.value)
     d = Sfcc::Cim::Data.from_value(4.32)
     assert_equal(d.type.to_i, Sfcc::Cim::Type::Real64)
     assert_equal(d.state, Sfcc::Cim::Data::Good)
@@ -126,7 +126,7 @@ describe Sfcc::Cim::Data do
     d.type = Sfcc::Cim::Type::SInt16
     assert_equal(d.type.to_i, Sfcc::Cim::Type::SInt16)
     assert_equal(d.state, Sfcc::Cim::Data::Null)
-    assert_equal(d.value, nil)
+    assert_nil(d.value)
     d.type = 'UInt16'
     assert_equal(d.type.to_i, Sfcc::Cim::Type::UInt16)
     d2 = Sfcc::Cim::Data.new(Sfcc::Cim::Type::String, 'abcd')
